@@ -12,7 +12,7 @@ body {
   box-sizing: border-box;
   padding: 3rem;
   text-align: center;
-  /* background-image: linear-gradient(to right bottom, rgba(247, 247, 247, 0.8), rgba(238, 238, 238, 0.8)), url(./images/palm-leaf.png); */
+  background-image: linear-gradient(to right bottom, rgba(247, 247, 247, 0.8), rgba(238, 238, 238, 0.8)), url(./images/palm-leaf.png);
   background-size: contain;
   font-family: "Lato", sans-serif; }
 
@@ -21,7 +21,7 @@ body {
   font-size: 8rem;
   padding: 2rem;
   background-image: linear-gradient(to right, #ffcb05, #c7a008);
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
   color: transparent;
   -webkit-text-stroke: 0.5px #2a75bb; }
 
@@ -105,7 +105,7 @@ body {
     margin-left: 0.3rem;
     font-size: 1.5rem; }
   .pokeCard__imgContainer {
-    /* background-image: url(./images/background.png); */
+    background-image: url(./images/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 40rem;

@@ -19,9 +19,8 @@ const Pokemon = () => {
 
   return (
     <div
-      className={`pokeCard pokeCard--${
-        pokemon.types && pokemon.types[0].type['name']
-      }`}
+      className={`pokeCard pokeCard--${pokemon.types && pokemon.types[0].type['name']
+        }`}
     >
       <div className='pokeCard__header'>
         <h2 className='pokeCard__name'>{name}</h2>
