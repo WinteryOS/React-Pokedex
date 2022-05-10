@@ -11,10 +11,10 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path='/pokemon/:id' component={Pokemon} />
-          <Route path='/login' component={Login} />
-          <Route path='/signup' component={Signup} />
-          <Route path='/' component={AllPokemon} />
+          <Route path='/pokemon/:id' element={<Pokemon />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/' element={<AllPokemon />} />
         </Routes>
       </Router>
     </div>
