@@ -41,7 +41,7 @@ const Pokemon = () => {
       <div className='pokeCard__imgContainer'>
         <img
           className='pokeCard__img'
-          src={`https://pokeres.bastionbot.org/images/pokemon/${id}.png`}
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
           alt='pokemon-pic'
         />
       </div>

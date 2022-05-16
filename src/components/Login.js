@@ -1,40 +1,50 @@
-import React, { useState } from 'react'
-import { login } from '../services/user';
+import React, { useState } from 'react';
+import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+import UserPool from "../UserPool.js";
+
+
 
 const Login = () => {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const onChangeHandler = (e) => {
-    const { name, value } = e.target
-    name === "username" ? setUsername(value) : setPassword(value)
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    const user = new CognitoUser({
+      Username: email,
+      Pool: UserPool,
+    });
+
+    const authDetails = new AuthenticationDetails({
+      Username: email,
+      Password: password
+    });
+
+    user.authenticateUser(authDetails, {
+      onSuccess: (data) => {
+        console.log("onSuccess:", data);
+      },
+      onFailure: (data) => {
+        console.log("onFailure:", data);
+      }
+    });
+
   }
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault()
-    let credentials = { username: username, password: password }
-    login(credentials)
-      .then(response => {
-        if (response.error) {
-          alert(response.error)
-        } else {
-          alert("You're logged in!")
-          // history.push('/')
-        }
-      })
-      .catch(console.log)
-    setUsername('')
-    setPassword('')
-  }
 
-  return (
-    <form onSubmit={ onSubmitHandler }>
-      <input type="text" onChange={ onChangeHandler } name="username" value={ username } placeholder="Username" />
-      <input type="password" onChange={ onChangeHandler } name="password" value={ password } placeholder="Password" />
-      <input type="submit" value="Log In" />
+  return (<div>
+    <form onSubmit={onSubmit}>
+      <label htmlFor="email">Email</label>
+      <input value={email} onChange={(event) => setEmail(event.target.value)}>
+      </input>
+      <label htmlFor="password">Password</label>
+      <input value={password} onChange={(event) => setPassword(event.target.value)}>
+      </input>
+      <button type="submit">Login</button>
     </form>
-  )
-}
+  </div>);
+};
 
-export default Login
+export default Login;
