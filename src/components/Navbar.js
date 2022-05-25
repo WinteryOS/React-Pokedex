@@ -13,6 +13,9 @@ const Navbar = () => {
       <NavLink className='nav__link' to='/signup'>
         Sign Up
       </NavLink>
+      <NavLink className='nav__link' to='/collection' >
+        Collection
+      </NavLink>
     </nav>
   );
 };
